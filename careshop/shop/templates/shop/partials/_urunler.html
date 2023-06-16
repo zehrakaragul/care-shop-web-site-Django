@@ -1,0 +1,45 @@
+
+ <div class="container mt-9">
+<div class="row">
+
+
+{% for urun in  page_obj.object_list %}
+
+<div class = "mt-5 col-3 justify-content-evenly " , align="center", >
+
+
+                         <div class=" col-10 ">
+                             <a href="{% url 'urun_detaylar' urun.slug %} ">
+                             <img class="img-fluid rounded-start" src="{{urun.resimUrl }}" alt="{{ urun.urunismi }} ">
+                                 </a>
+                         </div>
+                         <div class="col-10 ", style="font-size: small " >
+                             <div class="card-body">
+                                 <h5 class="card-title", style="font-size: small",>{{ urun.marka}} {{urun.urunismi }}</h5>
+                                 <p  class="card-text">{{ urun.aciklama }}</p>
+                                 <p  class="card-text" >{{ urun.fiyat }} {{ urun.fiyatbirim }}</p>
+                                 <form action="{% url 'sepet' %}" method="POST">
+                                     {% csrf_token %}
+                                     <button class="card-link  fas fa-shopping-bag ", style="margin-left: 10px ; border: white;color: #333333;background-color: white; font-size: large"></button>
+                                     <button  type="submit" class="card-link  fas fa-heart " , style="margin-left: 10px ; color: #333333;border: white;background-color: white; font-size: large"></button>
+                                 </form>
+                             </div>
+                         </div>
+                     </div>
+
+{% endfor %}
+</div>
+</div>
+
+
+
+
+<!--
+                  <span>
+                      {% if urun.isUpdated%}
+                          <span class="badge bg-success">Güncellendi</span>
+                      {% else %}
+                          <span class="badge bg-danger">Güncellenme bekliyor</span>
+                      {% endif %}
+                  </span>
+-->

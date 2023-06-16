@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'shop/css/style.css' %}">
+{% endblock %}
+{% block page_title%}
+{%endblock  %}
+
+{% block content %}
+    <div class="container mt-3">
+    <div class="row">
+        <div class="col-3" style="margin-left: 480px ; margin-top: 50px">
+             <h1 style="margin-left: 80px">GİRİŞ</h1>
+
+             <form method="post">
+                 {% csrf_token %}
+
+
+                 <!-- Kullanıcı Adı Alma -->
+                 <div class="mb-3 mt-5">
+                     <label  for="username" class="form-label ">Kullanıcı Adı</label>
+                     <input type="text" name="username" id="username" class="form-control" required>
+                 </div>
+                 <!-- Parola Alma -->
+                 <div class="mb-3">
+                     <label  for="password" class="form-label">Parola</label>
+                     <input type="password" name="password" id="password" class="form-control" required>
+                 </div>
+             <button type="submit"  class="btn " style="background-color:#7dacdc ; color: antiquewhite; margin-left: 120px">Giriş</button>
+
+             </form>
+
+
+        </div>
+    </div>
+    </div>
+
+{% endblock %}
+
+{% block js_files %}
+    <script src="{% static 'shop/js/script.js' %}"></script>
+{% endblock %}
+
+

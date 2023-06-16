@@ -1,0 +1,81 @@
+
+<!--navbar-->
+
+<!--
+<header>
+    <a href="#" class="logo"> Setia</a>
+    <nav class="navbar">
+        <a href="#"> Anasayfa</a>
+        <a href="#"> Kategoriler</a>
+        <a href="#"> İletişim</a>
+    </nav>
+    <div class="icons">
+        <a href="#" class="fas fa-heart"></a>
+        <a href="#" class="fas fa-shopping-bag"></a>
+        <a href="#" class="fas fa-user"></a>
+    </div>
+</header> -->
+
+<header>
+ <nav class="navbar navbar-expand-lg  bg-body-tertiary " style="background-color: #7dacdc; font-family: Calibri " >
+     <div class="container">
+
+         <a href="{% url 'index' %}" class="navbar-brand navbar-brand mb-0 h1 " style="color:#fcf2cb ; font-size: xx-large"    >SETAİA</a>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbar">
+           <span class="navbar-toggler-icon "></span>
+        </button>
+
+        <div class="collapse navbar-collapse" , id="navbar">
+            <ul class="navbar-nav me-auto ">
+
+             <li class="nav-item">
+                 <a href="/" class="nav-link " style="color:#fcf2cb ; font-size: large"  >Anasayfa </a>
+             </li>
+             <li class="nav-item">
+                 <a href="shops/" class="nav-link" style="color:#fcf2cb ; font-size: large">Kategoriler</a>
+             </li>
+
+
+
+         </ul>
+
+            <ul class="navbar-nav me-4">
+              {% if user.is_authenticated %}
+                   <li class="nav-item">
+                      <a href="#" class="nav-link" style="color:#fcf2cb"> Hoş geldin , {{ user.username }} </a>
+                   </li>
+                   <li class="nav-item">
+                      <a href="{% url 'user_logout' %}" class="nav-link" style="color:#fcf2cb; font-size: large">Çıkış yap</a>
+                   </li>
+              {% else %}
+                  <li class="nav-item">
+                     <a href="{% url 'user_login' %}" class="nav-link " style="color:#fcf2cb; font-size: large"  >Giriş </a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="{% url 'user_register' %}" class="   nav-link" style=" margin-left: 1px   ;  color:#fcf2cb; font-size: large">Üye ol </a>
+                  </li>
+              {% endif %}
+
+             <div  class="icons">
+               <a href="shops/favori" class="fas fa-heart  mb-0" style="margin-left:20px ;margin-top:5px;color: #f3f0f0;font-size: x-large " ></a>
+               <a href="{%  url 'sepet' %}" class="fas fa-shopping-bag " style="margin-left:10px ;margin-top:5px;color: #f3f0f0;font-size: x-large "></a>
+             </div>
+
+            </ul>
+
+        <form class="d-flex" action="{% url  'search'%}">
+            <input class="form-control me-1" type="text" name="q"placeholder="Ara" >
+            <button type="submit" class="btn btn-secondary" style="background-color: white; color: #666666 ; border: white">Ara</button>
+        </form>
+
+
+        </div>
+
+     </div>
+
+ </nav>
+</header>

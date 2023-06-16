@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block page_title %}
+    {{ urun.urunismi }}
+{% endblock %}
+
+{% block content%}
+        <div class="container mt-5">
+        <div class="row" >
+            <div class="col-4">
+               <img class="img-fluid rounded-start" src="{{urun.resimUrl }}" alt="{{ urun.urunismi }} ">
+
+            </div>
+            <div class="mt-xl-5 col-6 ">
+
+
+                      <h1 class="h3">{{ urun.marka }} {{ urun.urunismi }}</h1>
+                <p>
+                    {{ urun.aciklama }}
+                </p>
+                <p>
+                    {{ urun.fiyat }} {{ urun.fiyatbirim }}
+                </p>
+                <form action="{% url 'sepet' %}" method="POST">
+                    {% csrf_token %}
+                    <button class="card-link  fas fa-shopping-bag ", style="margin-left: 10px ; border: white;color: #333333;background-color: white; font-size: large"></button>
+                    <button  type="submit" class="card-link  fas fa-heart " , style="margin-left: 10px ; color: #333333;border: white;background-color: white; font-size: large"></button>
+                </form>
+
+
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

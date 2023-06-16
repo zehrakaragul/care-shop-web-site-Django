@@ -1,0 +1,32 @@
+         <nav class="navbar navbar-expand-lg  bg-body-tertiary " style="background-color: #ffffff; " >
+     <div class="container">
+
+
+
+        <div class="collapse navbar-collapse" , id="navbar">
+            <ul class="navbar-nav  mx-auto ">
+
+                    
+
+                    {% for category in categories %}
+                        <div class="grid gap-3">
+                        <div class="p-2 g-col-6 ">
+                        <a href="{% url 'shops_by_category' category.slug %}"
+                           class="ml-5 list-group-item list-group-item-action
+                                  {% if seciliKategori == category.slug%}active{% endif %}">
+                                  {{ category.kategorismi|title }}
+
+                        </a>
+
+                        </div>
+                        </div>
+                    {% endfor %}
+
+
+            </ul>
+
+        </div>
+
+     </div>
+
+ </nav>
